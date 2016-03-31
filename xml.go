@@ -203,10 +203,10 @@ func (p *xmlPlistParser) parseXMLElement(element xml.StartElement) *plistValue {
 		}
 
 		if s[0] == '-' {
-			n := mustParseInt(string(charData), 10, 64)
+			n := mustParseInt(string(charData), 0, 64)
 			return &plistValue{Integer, signedInt{uint64(n), true}}
 		} else {
-			n := mustParseUint(string(charData), 10, 64)
+			n := mustParseUint(string(charData), 0, 64)
 			return &plistValue{Integer, signedInt{n, false}}
 		}
 	case "real":
